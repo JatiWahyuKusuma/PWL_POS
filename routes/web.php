@@ -3,6 +3,7 @@
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+route::get('/', [WelcomeController::class, 'index']);
 
 route::get('/level', [LevelController::class, 'index']);
 route::get('/kategori', [KategoriController::class, 'index']);
@@ -34,3 +33,4 @@ route::get('/kategori', [KategoriController::class, 'index']);
 
 route::get('/kategori/create', [KategoriController::class, 'create']);
 route::post('/kategori', [KategoriController::class, 'store']);
+
