@@ -87,8 +87,8 @@
             name: 'harga_beli'
           },
           {
-            data: 'harga_beli',
-            name: 'harga_beli'
+            data: 'harga_jual',
+            name: 'harga_jual'
           },
           {
             data: 'action',

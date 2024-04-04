@@ -29,7 +29,7 @@ class BarangController extends Controller
 
     public function list(Request $request)
     {
-        $barangs = BarangModel::select('barang_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual');
+        $barangs = BarangModel::select('barang_id', 'kategori_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual');
         if ($request->barang_kode) {
             $barangs->where('barang_kode', $request->barang_kode);
         }
@@ -68,16 +68,22 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'level_kode' => 'required|string|min:3|unique:m_level',
-            'level_name' => 'required|string|max:100'
+            'kategorid' => 'required',
+            'kodeBarang' => 'required',
+            'namaBarang' => 'required',
+            'hargabeli' => 'required',
+            'hargajual' => 'required',
         ]);
 
         BarangModel::create([
-            'level_kode' => $request->level_kode,
-            'level_name' => $request->level_name
+            'kategori_id' => $request->kategorid,
+            'barang_kode' => $request->kodeBarang,
+            'barang_nama' => $request->namaBarang,
+            'harga_beli' => $request->hargabeli,
+            'harga_jual' => $request->hargajual,
         ]);
 
-        return redirect('/level')->with('success', 'Data level berhasil ditambahkan');
+        return redirect('/barang')->with('success', 'Data level berhasil ditambahkan');
     }
 
     public function show($id)
