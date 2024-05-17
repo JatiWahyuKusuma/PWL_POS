@@ -15,11 +15,6 @@ class KategoriSeeder extends Seeder
     {
         $data = [
             // [
-            //     'kategori_kode' => 'MNM', 
-            //     'kategori_nama' => 'Minuman', 
-            //     'created_at' => now(),
-            // ],
-            // [
             //     'kategori_kode' => 'MKN', 
             //     'kategori_nama' => 'Makanan', 
             //     'created_at' => now(),
@@ -35,8 +30,8 @@ class KategoriSeeder extends Seeder
             //     'created_at' => now(),
             // ],
             [
-                'kategori_kode' => 'PKN', 
-                'kategori_nama' => 'Pakaian', 
+                'kategori_kode' => 'FSN', 
+                'kategori_nama' => 'Fashion', 
                 'created_at' => now(),
             ],
 
