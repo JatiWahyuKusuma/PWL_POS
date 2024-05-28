@@ -89,7 +89,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'barang_id' => 9, 
-                'kategori_id' => 5,        
+                'kategori_id' => 4,        
                 'barang_kode' => 'BJU',
                 'barang_nama' => 'Baju',  
                 'harga_beli' => 150000,
@@ -98,7 +98,7 @@ class BarangSeeder extends Seeder
             ],
             [
                 'barang_id' => 10, 
-                'kategori_id' => 5,        
+                'kategori_id' => 4,        
                 'barang_kode' => 'CLN',
                 'barang_nama' => 'Celana',  
                 'harga_beli' => 100000,

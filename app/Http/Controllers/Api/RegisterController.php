@@ -17,6 +17,7 @@ class RegisterController extends Controller
             'nama' => 'required',
             'password' => 'required|min:5|confirmed',
             'level_id' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,giv,svg|max:2048',
         ]);
 
         //validations fails
@@ -24,12 +25,21 @@ class RegisterController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image->store('public/images');  // Menyimpan file ke direktori 'public/images'
+            $imageName = $image->hashName();
+        } else {
+            $imageName = null;  // atau Anda bisa mengatur nilai default lainnya
+        }
+        
         //create user
         $user = UserModel::create([
             'username' => $request->username,
             'nama' => $request->nama,
             'password' => bcrypt ($request->password),
             'level_id' => $request->level_id,
+            'image' => $image->hashName(),
         ]);
 
         //return response JSON  user is created
